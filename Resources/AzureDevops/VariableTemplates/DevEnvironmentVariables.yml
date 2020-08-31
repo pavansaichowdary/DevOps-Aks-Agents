@@ -1,0 +1,22 @@
+variables:
+- name: AzureDevOpsUrl
+  value: $(System.TeamFoundationCollectionUri)
+- name: AzureDevOpsAgentTag
+  value: $(Build.BuildNumber)
+- name: dockerRegistryServiceConnection
+  value: 'DockerConnectionGitHub'
+- name: imageRepository
+  value: 'aks-docker-agents-youtube'
+- name: containerRegistry
+  value: 'mondevappsharedcr.azurecr.io'
+- name: dockerfilePath
+  value: '**/DockerFiles/Dockerfile'
+- name: ubuntuImageName
+  value: 'ubuntu-latest'
+- name: windowsImageName
+  value: 'vs2017-win2016'
+- name: Environment
+  value: 'dev.dev'
+- name: DockerPoolName
+  value: 'MON - Docker - YouTube'
+

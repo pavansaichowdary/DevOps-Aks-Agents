@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: __imageRepository__ 
+spec:
+  replicas: 2
+  progressDeadlineSeconds: 1800
+  selector:
+    matchLabels:
+      app: __imageRepository__
+  template:
+    metadata:
+      labels:
+        app: __imageRepository__ 
+    spec:
+      containers:
+        - name: __imageRepository__
+          image: __containerRegistry__/__imageRepository__:v1
+          ports:
+          - containerPort: 80
+          resources:
+            requests:
+              cpu: "130m"
+              memory: "300Mi"
+            limits:
+              cpu: "130m"
+              memory: "300Mi"
+          env:
+          - name: AZP_POOL
+            value: "__DockerPoolName__"
+          - name: AZP_TOKEN
+            valueFrom: 
+              secretKeyRef:
+                name: mon-azuredevops-pat-token
+                key: pattokensecret
+          - name: AZP_URL
+            value: __AzureDevOpsUrl__
+          securityContext:
+            allowPrivilegeEscalation: false
+          volumeMounts:
+          - name: docker-graph-storage
+            mountPath: /var/run/docker.sock
+      volumes:
+      - name: docker-graph-storage
+        hostPath:
+            path: /var/run/docker.sock
