@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: __imageRepository__
-          image: __containerRegistry__/__imageRepository__:v1
+          image: __containerRegistry__/__imageRepository__:__AzureDevOpsAgentTag__
           ports:
           - containerPort: 80
           resources:
