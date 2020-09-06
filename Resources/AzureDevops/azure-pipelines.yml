@@ -77,7 +77,7 @@ stages:
               manifests: |
                 $(Pipeline.Workspace)/manifests/mon-devops-aks-agent.yml
               containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+                $(containerRegistry)/$(imageRepository):$(AzureDevOpsAgentTag)
 
           # Delete Tokenised file
           - task: DeleteFiles@1
