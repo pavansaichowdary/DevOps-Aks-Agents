@@ -63,7 +63,7 @@ stages:
             displayName: kubectl create pat token secret
             inputs:
               useClusterAdmin: true
-              namespace: 'dev'
+              namespace: 'docker'
               secretType: generic
               secretArguments: --from-literal=pattokensecret=$(AzurePatToken)
               secretName: mon-azuredevops-pat-token

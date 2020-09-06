@@ -16,7 +16,7 @@ variables:
 - name: windowsImageName
   value: 'vs2017-win2016'
 - name: Environment
-  value: 'dev.dev'
+  value: 'youtube.docker'
 - name: DockerPoolName
   value: 'MON - Docker - YouTube'
 
