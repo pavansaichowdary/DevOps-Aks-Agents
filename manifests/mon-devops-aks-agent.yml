@@ -37,4 +37,10 @@ spec:
             value: __AzureDevOpsUrl__
           securityContext:
             allowPrivilegeEscalation: false
-
+          volumeMounts:
+          - name: docker-graph-storage
+            mountPath: /var/run/docker.sock
+      volumes:
+      - name: docker-graph-storage
+        hostPath:
+            path: /var/run/docker.sock
