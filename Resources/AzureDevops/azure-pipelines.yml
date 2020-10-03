@@ -86,8 +86,19 @@ stages:
               SourceFolder: $(Pipeline.Workspace)/manifests/
               Contents: mon-devops-aks-agent.yml
 
-  - job: BashJob
+  - job: TimerDelayJob
     dependsOn: DeployDockerBuidAgentJob
+    condition: succeeded()
+    displayName: Timer Delay Job 
+    steps:
+    - task: PowerShell@2
+      displayName: "Delay 2 mins for AKS pods to start and warm up"
+      inputs:
+        script: 'Start-Sleep -s 120'
+        targetType: 'inline' # Optional. Options: filePath, inline
+
+  - job: BashJob
+    dependsOn: TimerDelayJob
     condition: succeeded()
     pool:
       name: $(DockerPoolName)
