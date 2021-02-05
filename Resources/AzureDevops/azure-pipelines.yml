@@ -71,7 +71,7 @@ stages:
               arguments: 'secret'
               secretType: 'generic'
               secretArguments: '--from-literal=pattokensecret=$(pattoken)'
-              secretName: 'azuredevops-pat-token'
+              secretName: 'mon-azuredevops-pat-token'
               forceUpdate: true
           # Deploy to aks
           - task: KubernetesManifest@0
