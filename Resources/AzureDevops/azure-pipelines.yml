@@ -61,6 +61,7 @@ stages:
           - task: Kubernetes@1
             displayName: kubectl create pat token secret
             inputs:
+              azureSubscriptionEndpoint: 'Aks-Self-Hosted-Agents-DevOps-Agents-Cluster-devops-agents-ns-1612500278008'
               useClusterAdmin: true
               namespace: 'devops-agents-ns'
               secretType: generic
