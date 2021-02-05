@@ -63,11 +63,8 @@ stages:
               kubernetesServiceEndpoint: 'Aks-Self-Hosted-Agents-DevOps-Agents-Cluster-devops-agents-ns-1612500278008'
               namespace: 'devops-agents-ns'
               command: 'create'
-              arguments: --from-literal=pattokensecret=$(AzurePatToken)
-              secretType: 'dockerRegistry'
-              containerRegistryType: 'Azure Container Registry'
-              azureSubscriptionEndpointForSecrets: 'Azure for Students (14d2b18f-c3d9-457f-b04e-9c62030b26d0)'
-              azureContainerRegistry: 'devopacrpoc.azurecr.io'
+              secretType: 'generic'
+              secretArguments: '--from-literal=pattokensecret=$(AzurePatToken)'
               secretName: 'mon-azuredevops-pat-token'
           # Deploy to aks
           - task: KubernetesManifest@0
