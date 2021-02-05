@@ -4,11 +4,11 @@ variables:
 - name: AzureDevOpsAgentTag
   value: $(Build.BuildNumber)
 - name: dockerRegistryServiceConnection
-  value: 'DockerConnectionGitHub'
+  value: 'Aks-Acr-ServiceConnection'
 - name: imageRepository
-  value: 'aks-docker-agents-youtube'
+  value: 'DevOps-Aks-Agents'
 - name: containerRegistry
-  value: 'mondevappsharedcr.azurecr.io'
+  value: 'devopacrpoc.azurecr.io'
 - name: dockerfilePath
   value: '**/DockerFiles/Dockerfile'
 - name: ubuntuImageName
@@ -16,7 +16,7 @@ variables:
 - name: windowsImageName
   value: 'vs2017-win2016'
 - name: Environment
-  value: 'youtube.docker'
+  value: 'Aks-Self-Hosted-Agents'
 - name: DockerPoolName
-  value: 'MON - Docker - YouTube'
+  value: 'Aks-SelfHosted-Agents'
 
