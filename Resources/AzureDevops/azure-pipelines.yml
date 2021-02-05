@@ -72,12 +72,11 @@ stages:
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
-              action: deploy
-              manifests: |
-                $(Pipeline.Workspace)/manifests/mon-devops-aks-agent.yml
-              containers: |
-                $(containerRegistry)/$(imageRepository):$(AzureDevOpsAgentTag)
-
+              action: 'deploy'
+              kubernetesServiceConnection: 'Aks-Self-Hosted-Agents-DevOps-Agents-Cluster-devops-agents-ns-1612500278008'
+              namespace: 'devops-agents-ns'
+              manifests: '$(Pipeline.Workspace)/manifests/mon-devops-aks-agent.yml'
+              containers: '$(containerRegistry)/$(imageRepository):$(AzureDevOpsAgentTag)'
           # Delete Tokenised file
           - task: DeleteFiles@1
             displayName: 'Delete tokenised file'
