@@ -6,7 +6,7 @@ variables:
 - name: dockerRegistryServiceConnection
   value: 'Aks-Acr-ServiceConnection'
 - name: imageRepository
-  value: 'DevOps-Aks-Agents'
+  value: 'devops-aks-agents'
 - name: containerRegistry
   value: 'devopacrpoc.azurecr.io'
 - name: dockerfilePath
