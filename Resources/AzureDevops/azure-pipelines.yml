@@ -66,7 +66,7 @@ stages:
               kubernetesServiceEndpoint: 'Aks-Self-Hosted-Agents-DevOps-Agents-Cluster-devops-agents-ns-1612500278008'
               namespace: 'devops-agents-ns'
               secretType: generic
-              secretArguments: --from-literal=pattokensecret=$(AzurePatToken)
+              secretArguments: --from-literal=pattokensecret=$(pattoken)
               secretName: mon-azuredevops-pat-token
               forceUpdate: true
           # Deploy to aks
