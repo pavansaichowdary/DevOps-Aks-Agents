@@ -68,11 +68,9 @@ stages:
               useClusterAdmin: true
               namespace: 'devops-agents-ns'
               command: 'create'
-              arguments: 'secret'
               secretType: 'generic'
               secretArguments: '--from-literal=pattokensecret=$(pattoken)'
               secretName: 'mon-azuredevops-pat-token'
-              forceUpdate: true
           # Deploy to aks
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
