@@ -63,7 +63,7 @@ stages:
             displayName: kubectl create pat token secret
             inputs:
               connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: 'Aks-Self-Hosted-Agents-DevOps-Agents-Cluster-devops-agents-ns-1612500278008'
+              kubernetesServiceEndpoint: 'Aks-Self-Hosted-Agents-Aks-Self-Hosted-Agents-devops-agents-ns-1612760154507'
               namespace: 'devops-agents-ns' 
               secretType: 'generic'
               secretArguments: '--from-literal=pattokensecret=$(pattoken)'
@@ -73,7 +73,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: 'deploy'
-              kubernetesServiceConnection: 'Aks-Self-Hosted-Agents-DevOps-Agents-Cluster-devops-agents-ns-1612500278008'
+              kubernetesServiceConnection: 'Aks-Self-Hosted-Agents-Aks-Self-Hosted-Agents-devops-agents-ns-1612760154507'
               namespace: 'devops-agents-ns'
               manifests: '$(Pipeline.Workspace)/manifests/mon-devops-aks-agent.yml'
               containers: '$(containerRegistry)/$(imageRepository):$(AzureDevOpsAgentTag)'
