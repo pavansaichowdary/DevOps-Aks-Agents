@@ -8,7 +8,7 @@ variables:
 - name: imageRepository
   value: 'devops-aks-agents'
 - name: containerRegistry
-  value: 'devopacrpoc.azurecr.io'
+  value: 'acraksdevops.azurecr.io'
 - name: dockerfilePath
   value: '**/DockerFiles/Dockerfile'
 - name: ubuntuImageName
