@@ -63,18 +63,18 @@ stages:
             displayName: kubectl create pat token secret
             inputs:
               connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceEndpoint: 'Aks-Self-Hosted-Agents-Aks-Self-Hosted-Agents-devops-agents-ns-1612760154507'
-              namespace: 'devops-agents-ns' 
+              kubernetesServiceEndpoint: $(aksServiceConnection)
+              namespace: $(aksNamespace)
               secretType: 'generic'
               secretArguments: '--from-literal=pattokensecret=$(pattoken)'
-              secretName: 'az-devops-pat-token'
+              secretName: $(aksSecretName)
           # Deploy to aks
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: 'deploy'
-              kubernetesServiceConnection: 'Aks-Self-Hosted-Agents-Aks-Self-Hosted-Agents-devops-agents-ns-1612760154507'
-              namespace: 'devops-agents-ns'
+              kubernetesServiceConnection: $(aksServiceConnection)
+              namespace: $(aksNamespace)
               manifests: '$(Pipeline.Workspace)/manifests/devops-aks-agent.yml'
               containers: '$(containerRegistry)/$(imageRepository):$(AzureDevOpsAgentTag)'
           # Delete Tokenised file
