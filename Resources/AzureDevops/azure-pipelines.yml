@@ -56,7 +56,7 @@ stages:
             displayName: 'Tokenization: transform file mon-devops-aks-agent.yml'
             inputs:
               SourcePath: $(Pipeline.Workspace)/manifests/
-              TargetFileNames: mon-devops-aks-agent.yml
+              TargetFileNames: devops-aks-agent.yml
           
           # Create PAT token secret in aks
           - task: Kubernetes@1
@@ -67,7 +67,7 @@ stages:
               namespace: 'devops-agents-ns' 
               secretType: 'generic'
               secretArguments: '--from-literal=pattokensecret=$(pattoken)'
-              secretName: 'mon-azuredevops-pat-token'
+              secretName: 'az-devops-pat-token'
           # Deploy to aks
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
@@ -75,14 +75,14 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'Aks-Self-Hosted-Agents-Aks-Self-Hosted-Agents-devops-agents-ns-1612760154507'
               namespace: 'devops-agents-ns'
-              manifests: '$(Pipeline.Workspace)/manifests/mon-devops-aks-agent.yml'
+              manifests: '$(Pipeline.Workspace)/manifests/devops-aks-agent.yml'
               containers: '$(containerRegistry)/$(imageRepository):$(AzureDevOpsAgentTag)'
           # Delete Tokenised file
           - task: DeleteFiles@1
             displayName: 'Delete tokenised file'
             inputs:
               SourceFolder: $(Pipeline.Workspace)/manifests/
-              Contents: mon-devops-aks-agent.yml
+              Contents: devops-aks-agent.yml
 
   - job: TimerDelayJob
     dependsOn: DeployDockerBuidAgentJob
