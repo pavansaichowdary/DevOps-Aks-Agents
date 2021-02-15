@@ -12,7 +12,7 @@ resources:
 
 variables:
   # this keyvault variable group is where your PAT Token will come from. Store your PAT Token there as a secret called "AzurePatToken"
-- group: KeyVault-Aks-Agents  
+- group: VarGroup-Aks-Agents  
 - template: VariableTemplates\DevEnvironmentVariables.yml  
 
 stages:
