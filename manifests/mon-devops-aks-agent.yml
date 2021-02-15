@@ -4,7 +4,7 @@ metadata:
   name: __imageRepository__ 
 spec:
   replicas: 2
-  progressDeadlineSeconds: 1800
+  progressDeadlineSeconds: 180
   selector:
     matchLabels:
       app: __imageRepository__
@@ -31,7 +31,7 @@ spec:
           - name: AZP_TOKEN
             valueFrom: 
               secretKeyRef:
-                name: mon-azuredevops-pat-token
+                name: az-devops-pat-token
                 key: pattokensecret
           - name: AZP_URL
             value: __AzureDevOpsUrl__
