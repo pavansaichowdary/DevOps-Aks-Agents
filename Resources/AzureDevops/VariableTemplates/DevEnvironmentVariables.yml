@@ -3,12 +3,6 @@ variables:
   value: $(System.TeamFoundationCollectionUri)
 - name: AzureDevOpsAgentTag
   value: $(Build.BuildNumber)
-- name: dockerRegistryServiceConnection
-  value: 'Aks-Acr-ServiceConnection'
-- name: imageRepository
-  value: 'devops-aks-agents'
-- name: containerRegistry
-  value: 'acraksdevops.azurecr.io'
 - name: dockerfilePath
   value: '**/DockerFiles/Dockerfile'
 - name: ubuntuImageName
@@ -19,4 +13,17 @@ variables:
   value: 'Aks-Self-Hosted-Agents'
 - name: DockerPoolName
   value: 'Aks-SelfHosted-Agents'
+- name: dockerRegistryServiceConnection
+  value: 'Aks-Acr-ServiceConnection'
+- name: imageRepository
+  value: 'devops-aks-agents'
+- name: containerRegistry
+  value: 'acraksdevops.azurecr.io'
+- name: aksSecretName
+  value: 'az-devops-pat-token'
+- name: aksServiceConnection
+  value: 'Aks-Self-Hosted-Agents-Aks-Self-Hosted-Agents-devops-agents-ns-1612760154507'
+- name: aksNamespace
+  value: 'devops-agents-ns'
+
 
