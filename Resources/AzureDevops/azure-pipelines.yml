@@ -10,10 +10,10 @@ trigger:
 resources:
   - repo: self
 
-variables:
-  # this keyvault variable group is where your PAT Token will come from. Store your PAT Token there as a secret called "AzurePatToken"
-- group: VarGroup-Aks-Agents  
-- template: VariableTemplates\DevEnvironmentVariables.yml  
+# variables:
+#   # this keyvault variable group is where your PAT Token will come from. Store your PAT Token there as a secret called "AzurePatToken"
+# - group: VarGroup-Aks-Agents  
+# - template: VariableTemplates\DevEnvironmentVariables.yml  
 
 stages:
 - stage: Build
